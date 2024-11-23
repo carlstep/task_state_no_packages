@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task_state_no_packages/datasource/task_database.dart';
-import 'package:task_state_no_packages/screens/focus_list_screen.dart';
 import 'package:task_state_no_packages/screens/task_list_screen.dart';
 import 'package:task_state_no_packages/service/focus_list_service.dart';
 
