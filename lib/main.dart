@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:task_state_no_packages/datasource/task_database.dart';
+import 'package:task_state_no_packages/models/task.dart';
 import 'package:task_state_no_packages/screens/task_list_screen.dart';
 import 'package:task_state_no_packages/service/focus_list_service.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final dir = await getApplicationDocumentsDirectory();
+  final isar = await Isar.open(
+    [TaskSchema],
+    directory: dir.path,
+  );
+  runApp(
+    MyApp(
+      isar: isar,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Isar isar;
+  const MyApp({super.key, required this.isar});
 
   @override
   Widget build(BuildContext context) {

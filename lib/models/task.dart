@@ -1,11 +1,11 @@
-class Task {
-  final String taskId;
-  final String taskName;
-  final String taskInfo;
+import 'package:isar/isar.dart';
 
-  Task({
-    required this.taskId,
-    required this.taskName,
-    required this.taskInfo,
-  });
+part 'task.g.dart';
+
+@collection
+class Task {
+  Id id = Isar.autoIncrement;
+  late String taskName;
+  late String taskDescription;
+  late DateTime taskDueDate;
 }
