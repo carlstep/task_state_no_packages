@@ -33,7 +33,7 @@ class TaskListScreen extends StatelessWidget {
               child: Card(
                 child: ListTile(
                   title: Text(task.taskName),
-                  subtitle: Text(task.taskInfo),
+                  subtitle: Text(task.taskDescription),
                   onTap: setToFocus
                       ? null
                       : () => focusListService.addTaskToFocusList(task),
